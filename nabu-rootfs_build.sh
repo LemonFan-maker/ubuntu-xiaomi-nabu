@@ -6,7 +6,7 @@ then
   exit
 fi
 
-VERSION="23.10"
+VERSION="22.04.5"
 
 truncate -s 6G rootfs.img
 mkfs.ext4 rootfs.img
@@ -22,10 +22,10 @@ mount --bind /dev/pts rootdir/dev/pts
 mount --bind /proc rootdir/proc
 mount --bind /sys rootdir/sys
 
-echo "nameserver 1.1.1.1" | tee rootdir/etc/resolv.conf
-echo "xiaomi-nabu" | tee rootdir/etc/hostname
+echo "nameserver 114.114.114.114" | tee rootdir/etc/resolv.conf
+echo "MiPad5" | tee rootdir/etc/hostname
 echo "127.0.0.1 localhost
-127.0.1.1 xiaomi-nabu" | tee rootdir/etc/hosts
+127.0.1.1 MiPad5" | tee rootdir/etc/hosts
 
 if uname -m | grep -q aarch64
 then
